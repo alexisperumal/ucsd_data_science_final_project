@@ -26,7 +26,8 @@ y = df['sars_cov_2_exam_result'].values.reshape(-1, 1)
 
 # Iterate over random state
 data = list()
-for n in np.arange(5):
+random_states = np.arange(0, 500, 1)
+for n in random_states:
 	# Split the training and testing data
 	X_train, X_test, y_train, y_test = train_test_split(X, y,
 		random_state=n)
@@ -52,5 +53,8 @@ for n in np.arange(5):
 			confusion_matrix[c] = 0
 	data.append(fn.confusion_matrix_calc(confusion_matrix))
 
-pd.DataFrame(data).to_csv('random_state_data.csv')
+
+data = pd.DataFrame(data)
+data['random_state'] = random_states
+data.to_csv('random_state_data.csv', index=False)
 

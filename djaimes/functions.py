@@ -17,7 +17,10 @@ def confusion_matrix_calc(dictionary):
 	d = dictionary
 	population = d['TP'] + d['TN'] + d['FP'] + d['FN']
 	accuracy = (d['TP'] + d['TN']) / population
-	precision = (d['TP']) / (d['TP'] + d['FP'])
+	try:
+		precision = (d['TP']) / (d['TP'] + d['FP'])
+	except ZeroDivisionError:
+		precision = 0
 	recall = (d['TP']) / (d['TP'] + d['FN'])
 	return {
 		'Accuracy': accuracy,
