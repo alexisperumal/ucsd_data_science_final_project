@@ -1,0 +1,7 @@
+patient_age_quantile
+hematocrit
+hemoglobin
+platelets
+mean_platelet_volume
+red_blood_cells
+sars_cov_2_exam_result
