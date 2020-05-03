@@ -5,3 +5,9 @@ platelets
 mean_platelet_volume
 red_blood_cells
 sars_cov_2_exam_result
+lymphocytes
+mean_corpuscular_hemoglobin_concentration_mchc
+leukocytes
+basophils
+mean_corpuscular_hemoglobin_mch
+eosinophils
