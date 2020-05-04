@@ -1,1 +1,1 @@
-['patient_age_quantile', 'leukocytes', 'monocytes', 'platelets', 'eosinophils', 'lymphocytes', 'red_blood_cells', 'hematocrit', 'mean_platelet_volume', 'hemoglobin']
+['patient_age_quantile', 'leukocytes', 'platelets', 'monocytes', 'hematocrit', 'red_blood_cells', 'lymphocytes', 'eosinophils', 'hemoglobin']
