@@ -41,7 +41,7 @@ def predict():
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
     '''
-    For direct API calls trought request
+    For direct API calls request
     '''
     
     model  = joblib.load('bloottest_RFC_selected_features.pkl')
