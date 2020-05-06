@@ -47,7 +47,11 @@
   
   <div class="login">
 	<h1>Predict Analysis</h1>
-
+  <br>
+  {% if prediction_text: %}
+         <p>Covid-19 result based on blood test: {{prediction_text}}</p>
+  {% endif %}
+   <br>
   <!-- Input For Receiving Query to our ML -->
   <!-- 'patient_age_quantile', 'leukocytes', 'platelets', 'monocytes', 'hematocrit', 'red_blood_cells', 'lymphocytes', 'eosinophils', 'hemoglobin'-->
 
@@ -97,9 +101,6 @@
   <button type="submit" class="btn btn-primary">Predict</button>
 </form>
 
-<br>
-   <br>
-   {{ prediction_text }}
  </div>
 
   </div>

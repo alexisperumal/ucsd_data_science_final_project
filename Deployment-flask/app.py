@@ -35,8 +35,12 @@ def predict():
     final_features = [np.array(features)]
     prediction = model.predict(final_features)
     predicted_value = prediction[0]
+    if int(predicted_value)== 1: 
+        prediction ='Positive'
+    else: 
+        prediction ='Negative'            
 
-    return render_template('index.html', prediction_text=predicted_value)
+    return render_template('index.html', prediction_text=prediction)
     
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
@@ -52,4 +56,4 @@ def predict_api():
     return jsonify(predicted_value)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=5000,debug=True)
