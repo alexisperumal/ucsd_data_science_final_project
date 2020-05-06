@@ -21,7 +21,7 @@ def RFC():
 def comparison():
     return render_template('comparison.html')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['POST','GET'])
 def predict():
     
         
@@ -29,9 +29,34 @@ def predict():
     For rendering results on Prediction HTML GUI
     '''
     model  = joblib.load('bloottest_RFC_selected_features.pkl')
+    patient_age_quantile = int(request.form.get('patient_age_quantile'))
+    leukocytes = float(request.form.get('leukocytes'))
+    platelets = float(request.form.get('platelets'))
+    monocytes = float(request.form.get('monocytes'))
+    hematocrit = float(request.form.get('hematocrit'))
+    eosinophils = float(request.form.get('eosinophils'))
+    red_blood_cells = float(request.form.get('red_blood_cells'))
+    hemoglobin = float(request.form.get('hemoglobin'))
+    lymphocytes = float(request.form.get('lymphocytes'))
+    mean_platelet_volume = float(request.form.get('mean_platelet_volume'))
+
+    print(patient_age_quantile, leukocytes)
+    print(type(patient_age_quantile), type(leukocytes))
+    
+    features = [ 
+                patient_age_quantile, 
+                leukocytes,
+                platelets,
+                monocytes,
+                hematocrit,
+                eosinophils,
+                red_blood_cells,
+                hemoglobin,
+                lymphocytes,
+                mean_platelet_volume]
     
     
-    features = [x for x in request.form.values()]
+    #features = [x for x in request.form.values()] // text format
     final_features = [np.array(features)]
     prediction = model.predict(final_features)
     predicted_value = prediction[0]
