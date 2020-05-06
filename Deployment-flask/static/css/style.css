@@ -1,5 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-/* Only for snippet */
-.footer{
-	background-color: #aaa7a7;
-  }
+/**/
+.container{
+  padding-top: 30px;
+  min-height: 100vh; /* minus the height of the footer */
+}
+/* for footer */
+div.container-fluid{
+  background-color: #eee;
+}

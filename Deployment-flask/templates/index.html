@@ -9,7 +9,7 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prediction.css') }}">
   
 </head>
 
@@ -57,44 +57,43 @@
 
 <form action="{{ url_for('predict')}}"method="post">
   <div class="form-group">
-    <label for="patient_age_quantile">patient age quantile</label>
-    <input type="text" class="form-control" id="patient_age_quantile" name="patient_age_quantile" placeholder="patient_age_quantile" required="required" >
+        <input type="text" class="form-control" id="patient_age_quantile" name="patient_age_quantile" placeholder="patient_age_quantile" required="required" >
   </div>
   <div class="form-group">
-    <label for="leukocytes">leukocytes</label>
+    
     <input type="text" class="form-control" id="leukocytes" name="leukocytes" placeholder="leukocytes" required="required" >
   </div>
    <div class="form-group">
-    <label for="platelets">platelets</label>
+ 
     <input type="text" class="form-control" id="platelets" name="platelets" placeholder="platelets" required="required" >
   </div>
   <div class="form-group">
-    <label for="monocytes">monocytes</label>
+  
     <input type="text" class="form-control" id="monocytes" name="monocytes" placeholder="monocytes" required="required" >
   </div>
   <div class="form-group">
-    <label for="hematocrit">hematocrit</label>
+   
     <input type="text" class="form-control" id="hematocrit" name="hematocrit" placeholder="hematocrit" required="required" >
   </div>
   <div class="form-group">
-    <label for="eosinophils">eosinophils</label>
+    
     <input type="text" class="form-control" id="eosinophils" name="eosinophils" placeholder="eosinophils" required="required" >
   </div>
   <div class="form-group">
-    <label for="red_blood_cells">red_blood_cells</label>
+    
     <input type="text" class="form-control" id="red_blood_cells" name="red_blood_cells" placeholder="red_blood_cells" required="required" >
   </div>
   <div class="form-group">
-    <label for="hemoglobin">hemoglobin</label>
+    
     <input type="text" class="form-control" id="hemoglobin" name="hemoglobin" placeholder="hemoglobin" required="required" >
   </div>
   <div class="form-group">
-    <label for="lymphocytes">lymphocytes</label>
+    
     <input type="text" class="form-control" id="lymphocytes" name="lymphocytes" placeholder="lymphocytes" required="required" >
   </div>
 
    <div class="form-group">
-    <label for="mean_platelet_volume">mean_platelet_volume</label>
+   
     <input type="text" class="form-control" id="mean_platelet_volume" name="mean_platelet_volume" placeholder="mean_platelet_volume" required="required" >
   </div>
   
@@ -110,23 +109,14 @@
    <footer class="page-footer text-center text-md-left pt-4">
 
     <!--Footer Links-->
-    <div class="container-fluid">
-      <div class="row">
-
-        <!--First column-->
-        <div class="col-md-3">
-          <h5 class="text-uppercase font-weight-bold mb-4">Footer Content</h5>
-          <p>© 2020 Copyright</p>
-        </div>
-        <!--/.First column-->
-
-        <hr class="w-100 clearfix d-md-none">  
-
+  <div class="container-fluid">
+    <div class="row">
     <!--Copyright-->
     <div class="footer-copyright py-3 text-center">
       <div class="container-fluid">
-        
-
+        <div class="col-md-12">
+          <p>© 2020 Copyright</p>
+        </div>
       </div>
     </div>
    
@@ -136,6 +126,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+ 
 </body>
 </html>
