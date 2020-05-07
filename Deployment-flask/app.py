@@ -1,9 +1,10 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
 from sklearn.externals import joblib
 import numpy as np
+from flask import Flask, request, jsonify, render_template
 from sklearn.externals import joblib
 
 # Init app
@@ -76,21 +77,23 @@ def comparison():
     return render_template('comparison.html')
 
 
-# Create a Product
-@app.route('/predict', methods=['POST','GET'])
+# Create a prediction from app form 
+@app.route('/predict', methods=['POST'])
 def predict():
     model  = joblib.load('bloottest_RFC_selected_features.pkl')
-    patient_age_quantile = int(request.form.get('patient_age_quantile'))
-    leukocytes = float(request.form.get('leukocytes'))
-    platelets = float(request.form.get('platelets'))
-    monocytes = float(request.form.get('monocytes'))
-    hematocrit = float(request.form.get('hematocrit'))
-    eosinophils = float(request.form.get('eosinophils'))
-    red_blood_cells = float(request.form.get('red_blood_cells'))
-    hemoglobin = float(request.form.get('hemoglobin'))
-    lymphocytes = float(request.form.get('lymphocytes'))
-    mean_platelet_volume = float(request.form.get('mean_platelet_volume'))
-
+    
+    patient_age_quantile = request.form.get('patient_age_quantile')
+    leukocytes = request.form.get('leukocytes')
+    platelets = request.form.get('platelets')
+    monocytes = request.form.get('monocytes')
+    hematocrit = request.form.get('hematocrit')
+    eosinophils = request.form.get('eosinophils')
+    red_blood_cells = request.form.get('red_blood_cells')
+    hemoglobin = request.form.get('hemoglobin')
+    lymphocytes = request.form.get('lymphocytes')
+    mean_platelet_volume = request.form.get('mean_platelet_volume')
+    
+     
     print(patient_age_quantile, leukocytes)
     print(type(patient_age_quantile), type(leukocytes))
 
@@ -105,16 +108,17 @@ def predict():
     print(predict_schema.jsonify(prediction)) 
     
     features = [ 
-                patient_age_quantile, 
-                leukocytes,
-                platelets,
-                monocytes,
-                hematocrit,
-                eosinophils,
-                red_blood_cells,
-                hemoglobin,
-                lymphocytes,
-                mean_platelet_volume]
+                int(patient_age_quantile), 
+                float(leukocytes),
+                float(platelets),
+                float(monocytes),
+                float(hematocrit),
+                float(eosinophils),
+                float(red_blood_cells),
+                float(hemoglobin),
+                float(lymphocytes),
+                float(mean_platelet_volume)
+                ]
     
     final_features = [np.array(features)]
     prediction = model.predict(final_features)
@@ -126,9 +130,63 @@ def predict():
                  
 
     return render_template('index.html', prediction_text=prediction_resp)
+
+
+#--------------------testing in Postman------------------------------------
+
+# Create a prediction using postman
+@app.route('/prediction', methods=['POST'])
+def post_prediction():
+    patient_age_quantile = request.json['patient_age_quantile']
+    leukocytes = request.json['leukocytes']
+    platelets = request.json['platelets'] 
+    monocytes = request.json['monocytes'] 
+    hematocrit = request.json['hematocrit']
+    eosinophils = request.json['eosinophils']
+    red_blood_cells = request.json['red_blood_cells']
+    hemoglobin = request.json['hemoglobin']
+    lymphocytes = request.json['lymphocytes'] 
+    mean_platelet_volume = request.json['mean_platelet_volume']
     
+     
+    print(patient_age_quantile, leukocytes)
+    print(type(patient_age_quantile), type(leukocytes))
+
+    prediction = Predict(patient_age_quantile, leukocytes, platelets,
+            monocytes, hematocrit, eosinophils, red_blood_cells,
+            hemoglobin, lymphocytes, mean_platelet_volume)
+    
+    print(prediction)
+
+    db.session.add(prediction)
+    db.session.commit()
+    print(predict_schema.jsonify(prediction)) 
+    return predict_schema.jsonify(prediction)
+    
+# verify in postman, get all the predictions
+@app.route('/prediction',methods=['GET'])
+def get_prodictions():
+    predictions = Predict.query.all()
+    result = predicts_schema.dump(predictions)
+    print(jsonify(result))
+    return jsonify(result)
+
+# Get Single Prediction data
+@app.route('/prediction/<id>', methods=['GET'])
+def get_prodiction(id):
+  predict = Predict.query.get(id)
+  return predict_schema.jsonify(predict)
 
 
+# Delete prediction
+@app.route('/prediction/<id>', methods=['DELETE'])
+def delete_prediction(id):
+  predict = Predict.query.get(id)
+  db.session.delete(predict)
+  db.session.commit()
+
+  return predict_schema.jsonify(predict)
+   
 
 # Run Server
 if __name__ == '__main__':
