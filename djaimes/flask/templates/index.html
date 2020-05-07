@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML COVID-19 API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/prediction.css') }}">
+  
+</head>
+
+<body>
+<!-- Nav Bar -->
+  <nav class="navbar navbar-custom navbar-expand-lg">
+  <a class="navbar-brand" href="/">COVID-19</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link active-nav" href="/">Prediction <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/comparison">Comparison</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Models
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/LR">LR</a>
+          <a class="dropdown-item" href="/RFC">RFC</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+ <!-- Nav Bar -->
+
+ <!--[ container ] -->
+  <div class="container">
+    <div class="row justify-content-center">
+    <div class="col-10">
+     <br>
+      <h3>Predict Analysis</h3>
+     <br>
+  {% if prediction_text: %}
+         <h5>Covid-19 result based on blood test: {{prediction_text}}</h5>
+  {% endif %}
+   <br>
+  <!-- Input For Receiving Query to our ML -->
+  <!-- 'patient_age_quantile', 'leukocytes', 'platelets', 'monocytes', 'hematocrit', 'red_blood_cells', 'lymphocytes', 'eosinophils', 'hemoglobin'-->
+
+<form action="{{ url_for('predict')}}"method="post">
+  <div class="form-group">
+        <input type="text" class="form-control" id="patient_age_quantile" name="patient_age_quantile" placeholder="patient_age_quantile" required="required" >
+  </div>
+  <div class="form-group">
+    
+    <input type="text" class="form-control" id="leukocytes" name="leukocytes" placeholder="leukocytes" required="required" >
+  </div>
+   <div class="form-group">
+ 
+    <input type="text" class="form-control" id="platelets" name="platelets" placeholder="platelets" required="required" >
+  </div>
+  <div class="form-group">
+  
+    <input type="text" class="form-control" id="monocytes" name="monocytes" placeholder="monocytes" required="required" >
+  </div>
+  <div class="form-group">
+   
+    <input type="text" class="form-control" id="hematocrit" name="hematocrit" placeholder="hematocrit" required="required" >
+  </div>
+  <div class="form-group">
+    
+    <input type="text" class="form-control" id="eosinophils" name="eosinophils" placeholder="eosinophils" required="required" >
+  </div>
+  <div class="form-group">
+    
+    <input type="text" class="form-control" id="red_blood_cells" name="red_blood_cells" placeholder="red_blood_cells" required="required" >
+  </div>
+  <div class="form-group">
+    
+    <input type="text" class="form-control" id="hemoglobin" name="hemoglobin" placeholder="hemoglobin" required="required" >
+  </div>
+  <div class="form-group">
+    
+    <input type="text" class="form-control" id="lymphocytes" name="lymphocytes" placeholder="lymphocytes" required="required" >
+  </div>
+
+   <div class="form-group">
+   
+    <input type="text" class="form-control" id="mean_platelet_volume" name="mean_platelet_volume" placeholder="mean_platelet_volume" required="required" >
+  </div>
+  
+  <button type="submit" class="btn btn-primary predict-button">Predict</button>
+</form>
+    </div>
+  </div>
+
+  </div>
+<!--[ container ] -->
+
+  <!--[ footer ] -->
+   <footer class="page-footer text-center text-md-left pt-4">
+
+    <!--Footer Links-->
+  <div class="container-fluid">
+    <div class="row">
+    <!--Copyright-->
+    <div class="footer-copyright py-3 text-center">
+      <div class="container-fluid">
+        <div class="col-md-12">
+          <p>© 2020 Copyright</p>
+        </div>
+      </div>
+    </div>
+   
+  </footer>
+  <!--/.Footer-->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+</body>
+</html>

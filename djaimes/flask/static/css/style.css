@@ -1,0 +1,84 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+/* navbar */
+.navbar-custom {
+  background-color: #8C3D2B;
+}
+/* Title */
+.navbar-custom .navbar-brand {
+  color: #eee;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+  color: #A6A6A6;
+}
+/* Link */
+.navbar-custom .navbar-nav > li > a {
+  color: #eee;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+  color: #A6A6A6;
+}
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+  color: #A6A6A6;
+
+}
+.navbar-custom .navbar-nav > .open > a,
+.navbar-custom .navbar-nav > .open > a:hover,
+.navbar-custom .navbar-nav > .open > a:focus {
+  color: #A6A6A6;
+  background-color: #8C3D2B;
+}
+/* Caret */
+.navbar-custom .navbar-nav > .dropdown > a .caret {
+  border-top-color: #0D0C0A;
+  border-bottom-color: #0D0C0A;
+}
+.navbar-custom .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #0D0C0A;
+  border-bottom-color: #0D0C0A;
+}
+.navbar-custom .navbar-nav > .open > a .caret,
+.navbar-custom .navbar-nav > .open > a:hover .caret,
+.navbar-custom .navbar-nav > .open > a:focus .caret {
+  border-top-color: #0D0C0A;
+  border-bottom-color: #0D0C0A;
+}
+
+/* Mobile version */
+.navbar-default .navbar-toggle {
+  border-color: #DDD;
+  background-color: #F2F2F2;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #F2F2F2;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #F2F2F2;
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+      color: #F2F2F2;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #F2F2F2;
+  }
+}
+.navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(242, 242, 242, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.container{
+  padding-top: 30px;
+  min-height: 100vh; /* minus the height of the footer */
+}
+/* for footer */
+div.container-fluid{
+  background-color: #F2F2F2;
+}
