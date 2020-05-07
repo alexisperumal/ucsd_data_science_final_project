@@ -1,9 +1,59 @@
-import numpy as np
 from flask import Flask, request, jsonify, render_template
+from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
+import os
+from sklearn.externals import joblib
+import numpy as np
 from sklearn.externals import joblib
 
+# Init app
 app = Flask(__name__)
+basedir = os.path.abspath(os.path.dirname(__file__))
+# Database
+app.config['SQLALCHEMY_DATABASE_URI'] = ('sqlite:///' + 
+    os.path.join(basedir, 'db.sqlite'))
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Init db
+db = SQLAlchemy(app)
+# Init ma
+ma = Marshmallow(app)
 
+# Product Class/Model
+class Predict(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    patient_age_quantile = db.Column(db.Integer)
+    leukocytes = db.Column(db.Float)
+    platelets = db.Column(db.Float)
+    monocytes = db.Column(db.Float)
+    hematocrit = db.Column(db.Float)
+    eosinophils  = db.Column(db.Float)
+    red_blood_cells = db.Column(db.Float)
+    hemoglobin = db.Column(db.Float)
+    lymphocytes = db.Column(db.Float)
+    mean_platelet_volume = db.Column(db.Float)
+
+    def __init__(self, patient_age_quantile, leukocytes, platelets,
+        monocytes, hematocrit, eosinophils, red_blood_cells,
+        hemoglobin, lymphocytes, mean_platelet_volume):
+        self.patient_age_quantile = patient_age_quantile
+        self.leukocytes = leukocytes
+        self.platelets = platelets
+        self.monocytes = monocytes
+        self.hematocrit = hematocrit
+        self.eosinophils = eosinophils
+        self.red_blood_cells = red_blood_cells
+        self.hemoglobin = hemoglobin
+        self.lymphocytes = lymphocytes
+        self.mean_platelet_volume = mean_platelet_volume
+
+class PredictSchema(ma.Schema):
+    class Meta:
+        fields = ('id', 'patient_age_quantile', 'leukocytes', 'platelets',
+            'monocytes', 'hematocrit', 'eosinophils', 'red_blood_cells',
+            'hemoglobin', 'lymphocytes', 'mean_platelet_volume')
+
+predict_schema = PredictSchema()
+predicts_schema = PredictSchema(many = True)
 
 @app.route('/')
 def home():
@@ -25,13 +75,10 @@ def SVC():
 def comparison():
     return render_template('comparison.html')
 
+
+# Create a Product
 @app.route('/predict', methods=['POST','GET'])
 def predict():
-    
-        
-    '''
-    For rendering results on Prediction HTML GUI
-    '''
     model  = joblib.load('bloottest_RFC_selected_features.pkl')
     patient_age_quantile = int(request.form.get('patient_age_quantile'))
     leukocytes = float(request.form.get('leukocytes'))
@@ -46,6 +93,16 @@ def predict():
 
     print(patient_age_quantile, leukocytes)
     print(type(patient_age_quantile), type(leukocytes))
+
+    prediction = Predict(patient_age_quantile, leukocytes, platelets,
+            monocytes, hematocrit, eosinophils, red_blood_cells,
+            hemoglobin, lymphocytes, mean_platelet_volume)
+    
+    print(prediction)
+
+    db.session.add(prediction)
+    db.session.commit()
+    print(predict_schema.jsonify(prediction)) 
     
     features = [ 
                 patient_age_quantile, 
@@ -59,30 +116,20 @@ def predict():
                 lymphocytes,
                 mean_platelet_volume]
     
-    
-    #features = [x for x in request.form.values()] // text format
     final_features = [np.array(features)]
     prediction = model.predict(final_features)
     predicted_value = prediction[0]
     if int(predicted_value)== 1: 
-        prediction ='Positive'
+        prediction_resp ='Positive'
     else: 
-        prediction ='Negative'            
+        prediction_resp ='Negative'  
+                 
 
-    return render_template('index.html', prediction_text=prediction)
+    return render_template('index.html', prediction_text=prediction_resp)
     
-@app.route('/predict_api',methods=['POST'])
-def predict_api():
-    '''
-    For direct API calls request
-    '''
-    
-    model  = joblib.load('bloottest_RFC_selected_features.pkl')
-    data = request.get_json(force=True)
-    prediction = model.predict([np.array(list(data.values()))])
 
-    predicted_value = prediction[0]
-    return jsonify(predicted_value)
 
-if __name__ == "__main__":
-    app.run(port=5000,debug=True)
+
+# Run Server
+if __name__ == '__main__':
+    app.run(debug=True)
