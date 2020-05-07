@@ -57,16 +57,16 @@ products_schema = ProductSchema()
 # Create a Product
 @app.route('/product', methods=['POST'])
 def add_product():
-    patient_age_quantile = request.json('patient_age_quantile')
-    leukocytes = request.json('leukocytes')
-    platelets = request.json('platelets') 
-    monocytes = request.json('monocytes') 
-    hematocrit = request.json('hematocrit')
-    eosinophils = request.json('eosinophils')
-    red_blood_cells = request.json('red_blood_cells')
-    hemoglobin = request.json('hemoglobin')
-    lymphocytes = request.json('lymphocytes') 
-    mean_platelet_volume = request.json('mean_platelet_volume')
+    patient_age_quantile = request.json['patient_age_quantile']
+    leukocytes = request.json['leukocytes']
+    platelets = request.json['platelets'] 
+    monocytes = request.json['monocytes'] 
+    hematocrit = request.json['hematocrit']
+    eosinophils = request.json['eosinophils']
+    red_blood_cells = request.json['red_blood_cells']
+    hemoglobin = request.json['hemoglobin']
+    lymphocytes = request.json['lymphocytes'] 
+    mean_platelet_volume = request.json['mean_platelet_volume']
 
     new_product = Product(patient_age_quantile, leukocytes, platelets,
             monocytes, hematocrit, eosinophils, red_blood_cells,
