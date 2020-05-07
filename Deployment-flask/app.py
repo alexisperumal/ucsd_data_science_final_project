@@ -80,7 +80,7 @@ def comparison():
 # Create a prediction from app form 
 @app.route('/predict', methods=['POST'])
 def predict():
-    model  = joblib.load('bloottest_RFC_selected_features.pkl')
+    model  = joblib.load('models/bloottest_RFC_selected_features.pkl')
     
     patient_age_quantile = request.form.get('patient_age_quantile')
     leukocytes = request.form.get('leukocytes')
