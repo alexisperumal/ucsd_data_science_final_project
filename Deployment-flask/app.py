@@ -17,6 +17,10 @@ def LR():
 def RFC():
     return render_template('RFC.html')
 
+@app.route('/SVC')
+def SVC():
+    return render_template('SVC.html')
+
 @app.route('/comparison')
 def comparison():
     return render_template('comparison.html')
