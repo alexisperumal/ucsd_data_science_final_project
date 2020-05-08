@@ -1,3 +1,16 @@
+/* 
+.Mark's-Studio-‚Äî-Apr'20-1-hex { color: #628C4F; }
+.Mark's-Studio-‚Äî-Apr'20-2-hex { color: #0D0C0A; }
+.Mark's-Studio-‚Äî-Apr'20-3-hex { color: #8C3D2B; }
+.Mark's-Studio-‚Äî-Apr'20-4-hex { color: #F2F2F2; }
+.Mark's-Studio-‚Äî-Apr'20-5-hex { color: #A6A6A6; }
+
+.Mark's-Studio-‚Äî-Apr'20-1-rgba { color: rgba(98, 140, 78, 1); }
+.Mark's-Studio-‚Äî-Apr'20-2-rgba { color: rgba(12, 12, 9, 1); }
+.Mark's-Studio-‚Äî-Apr'20-3-rgba { color: rgba(140, 61, 43, 1); }
+.Mark's-Studio-‚Äî-Apr'20-4-rgba { color: rgba(242, 242, 242, 1); }
+.Mark's-Studio-‚Äî-Apr'20-5-rgba { color: rgba(165, 165, 165, 1); }
+*/
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 /* navbar */
@@ -79,6 +92,14 @@
   min-height: 100vh; /* minus the height of the footer */
 }
 /* for footer */
-div.container-fluid{
-  background-color: #F2F2F2;
+footer.page-footer {
+margin-top: 20px;
+background-color:#eee;
+border-radius: .3rem;
+text-align: center;
+padding: 10px 10px;
+}
+.footer p{
+  color: #272838;
+  text-align: center;
 }
