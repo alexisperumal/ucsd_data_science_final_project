@@ -15,9 +15,10 @@ def plot_cm(y_test,y_pred,labels):
                         columns = labels)
 
 
-    plt.figure(figsize=(10,6))  
-    sns.heatmap(cm_df, annot=True)
+    plt.figure(figsize=(14,10))  
+    sns.heatmap(cm_df, annot=True, cmap = "Greens_r")
     plt.title('RFC \nAccuracy:{0:.3f}'.format(accuracy_score(y_test, y_pred)))
     plt.ylabel('Actual label')
     plt.xlabel('Predicted label')
     plt.show()
+    plt.savefig('plots/cm_heatmap_bloottest.png')
