@@ -80,7 +80,13 @@ def comparison():
 # Create a prediction from app form 
 @app.route('/predict', methods=['POST'])
 def predict():
-    model  = joblib.load('models/bloottest_RFC_selected_features.pkl')
+    
+    if (request.form.get('inlineRadioOptions') == 'RFC'):
+        model  = joblib.load('models/bloottest_RFC_selected_features.pkl')
+    elif (request.form.get('inlineRadioOptions') == 'LR'):
+        model  = joblib.load('bloottest_LR_selected_features_test.pkl')
+    else:
+        model  = joblib.load('models/bloottest_RFC_selected_features.pkl') 
     
     patient_age_quantile = request.form.get('patient_age_quantile')
     leukocytes = request.form.get('leukocytes')
@@ -93,7 +99,7 @@ def predict():
     lymphocytes = request.form.get('lymphocytes')
     mean_platelet_volume = request.form.get('mean_platelet_volume')
     
-     
+    print(request.form.get('inlineRadioOptions')) 
     print(patient_age_quantile, leukocytes)
     print(type(patient_age_quantile), type(leukocytes))
 
