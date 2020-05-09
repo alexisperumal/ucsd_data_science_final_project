@@ -63,7 +63,22 @@ def home():
 
 @app.route('/LR')
 def LR():
-    return render_template('LR.html')
+    n1 = ['Total Patients', 'Negative COVID-19 Patients',
+        'Positive COVID-19 Patients']
+    v1 = [598, 517, 81]
+
+    n2 = ['Total Patient Training Data',
+        'Total Patient Testing Data']
+    v2 = [448, 150]
+
+    n3 = ['Accuracy', 'Precision', 'Recall']
+    result = ['93.3%', '80.0%', '63.2%']
+    return render_template('LR.html',
+        result=zip(n3, result),
+        final=zip(n3, result),
+        patient=zip(n1, v1),
+        split=zip(n2, v2)
+        )
 
 @app.route('/RFC')
 def RFC():
