@@ -61,8 +61,8 @@ def home():
     return render_template('index.html')
 
 @app.route('/LR')
-def LR():
-    return render_template('LR.html')
+def LR(var=None):
+    return render_template('LR.html', prediction_text=var)
 
 @app.route('/RFC')
 def RFC():
@@ -142,7 +142,7 @@ def predict():
     else: 
         prediction_resp ='Negative'  
                  
-
+    LR(prediction_resp)
     return render_template('index.html', prediction_text=prediction_resp)
 
 
