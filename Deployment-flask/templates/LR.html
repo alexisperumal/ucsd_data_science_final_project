@@ -49,12 +49,66 @@
   <div class="container">
     <div class="row justify-content-center">
     <div class="col-md">
-      <h1 class="display-4 text-center mt-5 mb-5">Logistic Regression</h1>
-      <p class="lead">Our regression model uses data from the <a href="https://www.kaggle.com/roche-data-science-coalition/uncover">UNCOVER COVID-19 Challenge</a>. Shared by the Roche Data Science Coalition (RDSC), they are requesting the collaborative effort of the AI community to fight COVID-19. This challenge presents a curated collection of datasets from 20 global sources and asks you to model solutions to key questions that were developed and evaluated by a global frontline of healthcare providers, hospitals, suppliers, and policy makers.</p>
+      <h1 class="display-6 text-center mt-5 mb-3">Classification Algorithm - Logistic Regression</h1>
       <hr class="my-4">
+      <p>Our regression model uses data from the <a href="https://www.kaggle.com/roche-data-science-coalition/uncover">UNCOVER COVID-19 Challenge</a>. Shared by the Roche Data Science Coalition (RDSC), they are requesting the collaborative effort of the AI community to fight COVID-19. This challenge presents a curated collection of datasets from 20 global sources and asks you to model solutions to key questions that were developed and evaluated by a global frontline of healthcare providers, hospitals, suppliers, and policy makers.</p>
       <p>This model uses the Machine Learning code from <strong>scikit-learn</strong>. It is a Python-based module that is simple and efficient to utilize for preditive data analysis.</p>
-      <!-- <a class="btn btn-primary btn-lg" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html" role="button">Learn more</a> -->
-      <!-- <h1 class="display-4 text-center mt-5 mb-5">Blood Test Results</h1> -->
+      <a class="btn btn-primary btn-lg" href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html" role="button">Learn more</a>
+      <hr class="my-4">
+      <div class="alert alert-danger" role="alert">
+        <strong>Disclaimer:</strong> This tool does not provide medical advice. It is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis or treatment. Never ignore professional medical advice in seeking treatment because of something you come across. If you think you may have a medical emergency, immediately call your doctor or dial 911.
+      </div>
+
+      <!-- Data Information -->
+      <h1 class="display-6 mt-5 mb-3">Data Information</h1>
+      <p>The original data file had over 5,000 rows  and over 100 columns of patient, blood test results. Similar to the our form in the home page, we only picked the following 11 columns from the blood test:</p>
+      <ul>
+        <li>patient_age_quantile</li>
+        <li>leukocytes</li>
+        <li>platelets</li>
+        <li>monocytes</li>
+        <li>hematocrit</li>
+        <li>eosinophils</li>
+        <li>red_blood_cells</li>
+        <li>hemoglobin</li>
+        <li>lymphocytes</li>
+        <li>mean_platelet_volume</li>
+        <li>sars_cov_2_exam_result</li>
+      </ul>
+      <p class="mb-5">After getting all 11 columns, we cleaned up our data by dropping any patients with any missing data in any of the blood test markers. The following is the result of excluding any empty fields:</p>
+      <table class="table text-center">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Total Patients</th>
+            <th scope="col">Negative COVID-19 Patients</th>
+            <th scope="col">Positive COVID-19 Patients</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><h1>598</h1></td>
+            <td><h1>517</h1></td>
+            <td><h1>81</h1></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Training and Testing Data -->
+      <p class="mb-5">Next, we ran the total patient data through the <code>from sklearn.model_selection import train_test_split</code> to divide between training and testing. This <strong>scikit-learn</strong> function will divide the data 75% and 25% between training and testing, respectively.</p>
+      <table class="table text-center">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Total Patient Training Data</th>
+            <th scope="col">Total Patient Testing Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><h1>448</h1></td>
+            <td><h1>150</h1></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
    </div>
   </div>

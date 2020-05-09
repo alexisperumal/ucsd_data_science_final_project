@@ -6,6 +6,7 @@ from sklearn.externals import joblib
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 from sklearn.externals import joblib
+import pandas as pd
 
 # Init app
 app = Flask(__name__)
@@ -61,8 +62,8 @@ def home():
     return render_template('index.html')
 
 @app.route('/LR')
-def LR(var=None):
-    return render_template('LR.html', prediction_text=var)
+def LR():
+    return render_template('LR.html')
 
 @app.route('/RFC')
 def RFC():
