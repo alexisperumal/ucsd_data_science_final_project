@@ -72,9 +72,9 @@ def RFC():
 def SVC():
     return render_template('SVC.html')
 
-@app.route('/keras')
-def keras():
-    return render_template('keras.html')
+@app.route('/sequential')
+def sequential():
+    return render_template('sequential.html')
 
 @app.route('/comparison')
 def comparison():
@@ -89,7 +89,7 @@ def predict():
         model  = joblib.load('models/bloottest_RFC_selected_features.pkl')
     elif (request.form.get('inlineRadioOptions') == 'LR'):
         model  = joblib.load('models/bloottest_LR_selected_features_test.pkl')
-    elif (request.form.get('inlineRadioOptions') == 'keras'):
+    elif (request.form.get('inlineRadioOptions') == 'sequential'):
         model  = joblib.load('models/tensor_model.pkl')
     elif (request.form.get('inlineRadioOptions') == 'SVC'):
         model  = joblib.load('models/svc_model_covid_blood_test.pkl')
