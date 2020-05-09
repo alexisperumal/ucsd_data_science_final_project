@@ -92,7 +92,7 @@ def predict():
     elif (request.form.get('inlineRadioOptions') == 'sequential'):
         model  = joblib.load('models/tensor_model.pkl')
     elif (request.form.get('inlineRadioOptions') == 'SVC'):
-        model  = joblib.load('models/svc_model_covid_blood_test.pkl')
+        model  = joblib.load('models/svc_model_covid_blood.pkl')
     else:
         model  = joblib.load('models/bloottest_RFC_selected_features.pkl') 
     
