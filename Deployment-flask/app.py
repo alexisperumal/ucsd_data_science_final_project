@@ -61,8 +61,8 @@ def home():
     return render_template('index.html')
 
 @app.route('/LR')
-def LR():
-    return render_template('LR.html')
+def LR(var=None):
+    return render_template('LR.html', prediction_text=var)
 
 @app.route('/RFC')
 def RFC():
@@ -84,7 +84,7 @@ def predict():
     if (request.form.get('inlineRadioOptions') == 'RFC'):
         model  = joblib.load('models/bloottest_RFC_selected_features.pkl')
     elif (request.form.get('inlineRadioOptions') == 'LR'):
-        model  = joblib.load('bloottest_LR_selected_features_test.pkl')
+        model  = joblib.load('models/bloottest_LR_selected_features_test.pkl')
     else:
         model  = joblib.load('models/bloottest_RFC_selected_features.pkl') 
     
@@ -134,7 +134,7 @@ def predict():
     else: 
         prediction_resp ='Negative'  
                  
-
+    LR(prediction_resp)
     return render_template('index.html', prediction_text=prediction_resp)
 
 
