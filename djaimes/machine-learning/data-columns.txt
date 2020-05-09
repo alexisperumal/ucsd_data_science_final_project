@@ -2,9 +2,10 @@ patient_age_quantile
 leukocytes
 platelets
 monocytes
-eosinophils
 hematocrit
+eosinophils
 red_blood_cells
-lymphocytes
 hemoglobin
+lymphocytes
+mean_platelet_volume
 sars_cov_2_exam_result

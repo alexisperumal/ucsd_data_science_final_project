@@ -37,7 +37,7 @@ for n in random_states:
 		random_state=n)
 
 	# Classification of testing data, using training data
-	classifier = LogisticRegression()
+	classifier = LogisticRegression(max_iter=500)
 	classifier.fit(X_train, y_train.flatten())
 	predictions = classifier.predict(X_test)
 

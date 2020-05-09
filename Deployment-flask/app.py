@@ -61,8 +61,8 @@ def home():
     return render_template('index.html')
 
 @app.route('/LR')
-def LR():
-    return render_template('LR.html')
+def LR(var=None):
+    return render_template('LR.html', prediction_text=var)
 
 @app.route('/RFC')
 def RFC():
@@ -71,6 +71,10 @@ def RFC():
 @app.route('/SVC')
 def SVC():
     return render_template('SVC.html')
+
+@app.route('/sequential')
+def sequential():
+    return render_template('sequential.html')
 
 @app.route('/comparison')
 def comparison():
@@ -84,7 +88,11 @@ def predict():
     if (request.form.get('inlineRadioOptions') == 'RFC'):
         model  = joblib.load('models/bloottest_RFC_selected_features.pkl')
     elif (request.form.get('inlineRadioOptions') == 'LR'):
-        model  = joblib.load('bloottest_LR_selected_features_test.pkl')
+        model  = joblib.load('models/bloottest_LR_selected_features_test.pkl')
+    elif (request.form.get('inlineRadioOptions') == 'sequential'):
+        model  = joblib.load('models/tensor_model.pkl')
+    elif (request.form.get('inlineRadioOptions') == 'SVC'):
+        model  = joblib.load('models/svc_model_covid_blood_test.pkl')
     else:
         model  = joblib.load('models/bloottest_RFC_selected_features.pkl') 
     
@@ -134,7 +142,7 @@ def predict():
     else: 
         prediction_resp ='Negative'  
                  
-
+    LR(prediction_resp)
     return render_template('index.html', prediction_text=prediction_resp)
 
 
