@@ -76,7 +76,7 @@
         <li>sars_cov_2_exam_result</li>
       </ul>
       <p class="mb-5">After getting all 11 columns, we cleaned up our data by dropping any patients with any missing data in any of the blood test markers. The following is the result of excluding any empty fields:</p>
-      <table class="table text-center">
+      <table class="table text-center table-bordered">
         <thead class="thead-light">
           <tr>
             <th scope="col">Total Patients</th>
@@ -95,7 +95,7 @@
 
       <!-- Training and Testing Data -->
       <p class="mb-5">Next, we ran the total patient data through the <code>from sklearn.model_selection import train_test_split</code> to divide between training and testing. This <strong>scikit-learn</strong> function will divide the data 75% and 25% between training and testing, respectively.</p>
-      <table class="table text-center">
+      <table class="table text-center table-bordered">
         <thead class="thead-light">
           <tr>
             <th scope="col">Total Patient Training Data</th>
@@ -106,6 +106,30 @@
           <tr>
             <td><h1>448</h1></td>
             <td><h1>150</h1></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Confusion Matrix -->
+      <p class="mb-5">Finally, we ran the training data on our Logistic Regression function to produce a model and then we used this model to predict whether or not the 150 patients in the testing data had COVID-19. To summarize our results, we put it in this table, known as a <strong>confusion matrix</strong>:</p>
+      <table class="table text-center table-bordered">
+        <thead>
+          <tr class="text-light">
+            <th scope="col"></th>
+            <th scope="col" class="bg-info">Actual Positve</th>
+            <th scope="col" class="bg-info">Actual Negative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="bg-info text-light">Predict Positive</th>
+            <td><h1>12</h1></td>
+            <td><h1>3</h1></td>
+          </tr>
+          <tr>
+            <th scope="row" class="bg-info text-light">Predict Negative</th>
+            <td><h1>7</h1></td>
+            <td><h1>128</h1></td>
           </tr>
         </tbody>
       </table>
