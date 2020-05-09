@@ -6,7 +6,7 @@ from sklearn.externals import joblib
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 from sklearn.externals import joblib
-import pandas as pd
+
 
 # Init app
 app = Flask(__name__)
