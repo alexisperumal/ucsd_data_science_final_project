@@ -72,6 +72,10 @@ def RFC():
 def SVC():
     return render_template('SVC.html')
 
+@app.route('/keras')
+def keras():
+    return render_template('keras.html')
+
 @app.route('/comparison')
 def comparison():
     return render_template('comparison.html')
