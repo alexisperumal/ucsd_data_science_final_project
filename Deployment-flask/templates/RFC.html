@@ -36,9 +36,6 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="/LR">LR</a>
           <a class="dropdown-item" href="/RFC">RFC</a>
-          <a class="dropdown-item" href="/SVC">SVC</a>
-           <!-- <a class="dropdown-item" href="/sequential">Sequential</a> -->
-        </div>
         </div>
       </li>
     </ul>
@@ -79,26 +76,50 @@
               </div>
             </div>
           </div>
-
-           <div class="col-md-8">
+           
+           <div class="section-immplementation col-md-7">
             <div class="card ">
               <div class="card-body">
-                <h4 class="card-header ">
-                Implementation</h4>
-                <p class="card-text"><img id="image" src=""  class="img-fluid" align="left" alt="">
-                  <p></p>
-                </p>
+                <h4 class="card-header ">Implementation</h4>
+                <h5>1.Importing Python libraries and Loading our dataset, preprocessing </h5>
+                  <p>
+                     <img src="{{ url_for('static', filename='Images_RFC/screen_shot1.png') }}" class=" img-thumbnail" alt="Data Loading">
+                     <img src="{{ url_for('static', filename='Images_RFC/screen_shot3.png') }}" class=" img-thumbnail" alt="Data Loading">
+                  </p>
+                <h5>2.Splitting our dataset into training set and test set</h5>
+                  <p>
+                     <img src="{{ url_for('static', filename='Images_RFC/screen_shot4.png') }}" class=" img-thumbnail" alt="data splitting">
+                  </p>
+                <h5>4.Creating a Random Forest Regression model and fitting it to the training data</h5>
+                  <p>
+                     <img src="{{ url_for('static', filename='Images_RFC/screen_shot5.png') }}" class=" img-thumbnail" alt="model">
+                  </p>
+                  <h5>5.Predicting the test set results and making the Confusion matrix</h5>
+                  <p>
+                     <img src="{{ url_for('static', filename='Images_RFC/screen_shot6.png') }}" class=" img-thumbnail" alt="prediction">
+                  </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="section-immplementation col-md-5">
             <div class="card ">
               <div class="card-body">
                 <h4 class="card-header">Visualisations</h4>
                 <div class="row">
                   <div class="col-sm-12">
-                    <div class="">
-                      
+                    <div class=""> 
+                    </br>
+                    <ul class="list-group">
+                      <li class="list-group-item">List of Selected Blood Tests</li>
+                      <li class="list-group-item">'patient_age_quantile', 'leukocytes', 'platelets', 'monocytes', 'hematocrit', 'eosinophils', 'red_blood_cells', 'lymphocytes', 'hemoglobin', 'mean_platelet_volume'</li>
+                    </ul>
+                    </br>
+                    <h5>Selected Features Vs Scores</h5>
+                    <img src="{{ url_for('static', filename='Images_RFC/scorevsfeature_bloottest.png') }}" class=" img-thumbnail" alt="Data splitting">
+                    
+                    <p></p>
+                    <h5>Confusion matrix Heat Map </h5>
+                    <img src="{{ url_for('static', filename='Images_RFC/cm_heatmap_bloottest.png') }}" class=" img-thumbnail" alt="Data splitting">
                     </div>
                   </div>
                 <div class="row">
@@ -111,7 +132,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -124,7 +144,7 @@
     <div class="row">
         <div class="col-md-12">
           <p class="text text-center">
-           <small>© Copyright 2020</br>
+           <small>© Copyright 2020</p>
           </p>
         </div>
       </div>

@@ -29,8 +29,6 @@ y = df['sars_cov_2_exam_result'].values.reshape(-1, 1)
 data = list()
 random_states = np.arange(0, 500, 1)
 max_percent = [0, 0]
-save_index = 0
-save_model = 0
 for n in random_states:
 	# Split the training and testing data
 	X_train, X_test, y_train, y_test = train_test_split(X, y,
@@ -85,3 +83,4 @@ joblib_model = joblib.load('LogisticRegression_model.pkl')
 # Calculate the accuracy and predictions
 score = joblib_model.score(X_test, y_test)
 print("Test score: {0:.2f} %".format(100 * score))
+print(f'Max Percent: {max_percent}')
