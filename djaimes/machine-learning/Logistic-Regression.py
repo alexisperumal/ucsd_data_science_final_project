@@ -65,6 +65,7 @@ for n in random_states:
 		max_percent[1] = cm_dict['Recall']
 		save_model = classifier
 		save_index = n
+		save_cm = confusion_matrix
 
 # Save all confusion matrices in CSV file.
 data = pd.DataFrame(data)
@@ -76,6 +77,7 @@ joblib.dump(save_model, 'LogisticRegression_model.pkl')
 fname = 'LogisticRegression_model_info.txt'
 with open(fname, 'w') as f:
 	f.write(str(data[data['random_state'] == save_index].to_dict()))
+	f.write(str(save_cm))
 
 # Load from file
 joblib_model = joblib.load('LogisticRegression_model.pkl')
