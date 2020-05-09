@@ -88,12 +88,12 @@
 }
 
 .container{
-  padding-top: 30px;
   min-height: 100vh; /* minus the height of the footer */
 }
+
 /* for footer */
 footer.page-footer {
-margin-top: 20px;
+  margin-top: 20px;
 background-color:#eee;
 border-radius: .3rem;
 text-align: center;
