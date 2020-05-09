@@ -84,7 +84,7 @@ def predict():
     if (request.form.get('inlineRadioOptions') == 'RFC'):
         model  = joblib.load('models/bloottest_RFC_selected_features.pkl')
     elif (request.form.get('inlineRadioOptions') == 'LR'):
-        model  = joblib.load('bloottest_LR_selected_features_test.pkl')
+        model  = joblib.load('models/bloottest_LR_selected_features_test.pkl')
     else:
         model  = joblib.load('models/bloottest_RFC_selected_features.pkl') 
     
