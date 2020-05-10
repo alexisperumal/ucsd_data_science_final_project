@@ -58,7 +58,7 @@
                   <p>Here the model used is Random Forest for possible prediction of the test result for COVID-19 (positive/negative) based on the laboratory tests commonly collected during a visit to the emergency room. </br>
                   <p> The original data  is from <a href="https://www.kaggle.com/roche-data-science-coalition/uncover">UNCOVER COVID-19 Challenge</a> 
                   where file has 5,644 rows and over 100 columns of patient, out of which initially 16 were selected but based on the model score top 10 were kept similar to our prediction form in the home page.</p></br>
-                  <p>RFC is an ensemble algorithm, which combines more than one algorithms of same or different kind for classifying objects:</br>
+                  <h5>RFC is an ensemble algorithm, which combines more than one algorithms of same or different kind for classifying objects:</h5></br>
                   <ul class="list-group">
                     <li class="list-group-item">Step 1 - start with the selection of random samples from a given dataset</li>
                     <li class="list-group-item">Step 2 - next, this algorithm will construct a decision tree for every sample. 
@@ -67,7 +67,7 @@
                     <li class="list-group-item">Step 4 - At last, select the most voted prediction result as the final prediction result.</li>
                   </ul>
                   </br>
-                  <p>Why Select Random Forest ?</br>
+                  <h5>Why Select Random Forest ?</h5></br>
                    <ul class="list-group">
                     <li class="list-group-item"> It is one of the most accurate learning algorithms available. For many data sets, 
                                                  it produces a highly accurate classifier.</li>
@@ -75,7 +75,7 @@
                     <li class="list-group-item">It generates an internal unbiased estimate of the generalization error as the forest building progresses</li>
                     <li class="list-group-item">It has an effective method for estimating missing data and maintains accuracy when a large proportion of the data are missing</li>
                   </ul>
-                </p>
+                </h5>
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@
                     <img src="{{ url_for('static', filename='Images_RFC/cm_heatmap_bloottest.png') }}" class=" img-thumbnail" alt="Data splitting">
                     </br>
                     </br>
-                     <h5 > Here is the confusion matrix table for the performance of the model:</h5>
+                     <h5 > Confusion matrix table for the performance of the model:</h5>
                      </br>
                         <table class="table text-center table-bordered">
                           <thead>
@@ -191,7 +191,7 @@
         <div class="col-md-12">
           <p class="text text-center">
            <small>© Copyright 2020</p>
-          </p>
+          </h5>
         </div>
       </div>
     </div> 
