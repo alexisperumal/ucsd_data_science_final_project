@@ -2,10 +2,9 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
-from sklearn.externals import joblib
+import joblib
 import numpy as np
 from flask import Flask, request, jsonify, render_template
-from sklearn.externals import joblib
 
 
 # Init app
