@@ -81,7 +81,25 @@ def LR():
 
 @app.route('/RFC')
 def RFC():
-    return render_template('RFC.html')
+    cm_dict = {
+        'tn' : 1017,
+        'fp' : 4,
+        'fn' : 101,
+        'tp' : 7
+    }
+   
+    accuracy_score = 0.907
+    
+    # recall: tp / (tp + fn)
+    recall  = cm_dict['tp'] / (cm_dict['tp']+ cm_dict['fn'])
+    
+    # precision tp / (tp + fp)
+    precision  = cm_dict['tp'] / (cm_dict['tp'] + cm_dict['fp'])
+    
+    # f1: 2 tp / (2 tp + fp + fn)
+    f1_score  = 2*cm_dict['tp'] / (2*cm_dict['tp'] + cm_dict['fp'] + cm_dict['fn'])
+    
+    return render_template('RFC.html', accuracy_score = accuracy_score, precision = round(precision,3), recall= round(recall,3), f1_score = round(f1_score,2))
 
 @app.route('/SVC')
 def SVC():
