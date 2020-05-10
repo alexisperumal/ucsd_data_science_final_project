@@ -28,7 +28,7 @@ y = df['sars_cov_2_exam_result'].values.reshape(-1, 1)
 
 fill = list()
 # Load in model
-for fname in path_models[:3]:
+for fname in path_models[:3] + [path_models[4]]:
 	model = joblib.load(fname)
 	predict = model.predict(X)
 	fill.append({

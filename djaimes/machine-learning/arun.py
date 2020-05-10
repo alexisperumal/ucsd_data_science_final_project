@@ -36,7 +36,8 @@ X = data.drop('sars_cov_2_exam_result', axis=1)
 y = data['sars_cov_2_exam_result'].values.reshape(-1, 1)
 
 # Predict Analysis
-model = joblib.load(path[0])
+
+model = joblib.load(path[:3])
 predict = model.predict(X)
 fill = {
 	'Model': path[0].split('/')[4],
