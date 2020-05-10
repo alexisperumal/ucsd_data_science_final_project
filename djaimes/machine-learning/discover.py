@@ -13,7 +13,7 @@ with open('data-columns.txt', 'r') as f:
 df = df[colnames].dropna()
 df = df.reset_index(drop=True)
 
-print(df[df['sars_cov_2_exam_result'] == 'positive'].iloc[8])
+print(df[df['sars_cov_2_exam_result'] == 'positive'].iloc[18])
 
 # Total Patients
 print(f'Total patients: {len(df)}')
