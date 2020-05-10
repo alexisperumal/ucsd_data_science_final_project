@@ -50,12 +50,25 @@
     <div class="row justify-content-center">
     <div class="col-10">
      <br>
-      <h3>Predict Analysis</h3>
+      <h1>Predictive Analysis</h1>
      <br>
-  {% if prediction_text: %}
-         <h5>Covid-19 result based on blood test: {{prediction_text}}</h5>
-  {% endif %}
-   <br>
+
+     <!-- ALERT disclaimer -->
+      <div class="alert alert-info" role="alert">
+        <strong>Disclaimer:</strong> This tool does not provide medical advice. It is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis or treatment. Never ignore professional medical advice in seeking treatment because of something you come across. If you think you may have a medical emergency, immediately call your doctor or dial 911.
+      </div>
+
+      <!-- Post result of preditive model: negative or positive -->
+      {% if prediction_text == "Negative": %}
+        <div class="alert alert-success align-middle" role="alert">
+          <h4>Covid-19 result based on blood test: <strong>{{ prediction_text }}</strong></h4>
+        </div>
+      {% elif prediction_text == "Positive": %}
+        <div class="alert alert-danger align-middle" role="alert">
+          <h4>Covid-19 result based on blood test: <strong>{{ prediction_text }}</strong></h4>
+        </div>
+      {% endif %}
+
   <!-- Input For Receiving Query to our ML -->
   <!-- 'patient_age_quantile', 'leukocytes', 'platelets', 'monocytes', 'hematocrit', 'red_blood_cells', 'lymphocytes', 'eosinophils', 'hemoglobin'-->
 
