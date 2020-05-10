@@ -60,18 +60,21 @@
   <!-- 'patient_age_quantile', 'leukocytes', 'platelets', 'monocytes', 'hematocrit', 'red_blood_cells', 'lymphocytes', 'eosinophils', 'hemoglobin'-->
 
 <form action="{{ url_for('predict')}}"method="post">
+<div class="selection">
  <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="LR">
-  <label class="form-check-label" for="inlineRadio1">LR</label>
+  <label class="form-check-label" for="inlineRadio1">Logistic Regression</label>
  </div>
  <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="RFC">
-  <label class="form-check-label" for="inlineRadio2">RFC</label>
+  <label class="form-check-label" for="inlineRadio2">Random Forest Classifier </label>
  </div>
  <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="SVC">
-  <label class="form-check-label" for="inlineRadio3">SVC</label>
+  <label class="form-check-label" for="inlineRadio3">Support Vector Classifier</label>
  </div>
+</div>
+ 
  <!--
  <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="sequential">

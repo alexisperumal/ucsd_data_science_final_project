@@ -158,7 +158,6 @@ def predict():
     else: 
         prediction_resp ='Negative'  
                  
-    LR(prediction_resp)
     return render_template('index.html', prediction_text=prediction_resp)
 
 

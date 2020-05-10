@@ -95,10 +95,9 @@ div.section-immplementation{
   padding-top: 20px;
 }
 
-
 /* for footer */
 footer.page-footer {
-  margin-top: 20px;
+margin-top: 20px;
 background-color:#eee;
 border-radius: .3rem;
 text-align: center;
