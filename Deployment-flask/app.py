@@ -82,10 +82,10 @@ def LR():
 @app.route('/RFC')
 def RFC():
     cm_dict = {
-        'tn' : 1017,
+        'tn' : 1276,
         'fp' : 4,
-        'fn' : 101,
-        'tp' : 7
+        'fn' : 123,
+        'tp' : 8
     }
    
     accuracy_score = 0.907
