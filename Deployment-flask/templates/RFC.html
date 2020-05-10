@@ -105,6 +105,28 @@
                   <p>
                      <img src="{{ url_for('static', filename='Images_RFC/screen_shot6.png') }}" class=" img-thumbnail" alt="prediction">
                   </p>
+                  </br>
+                  </br>
+                  <h4>Summary</h4> 
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">Accuracy Score</th>
+                        <th scope="col">Precision</th>
+                        <th scope="col">Recall</th>
+                        <th scope="col">F1_Score</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{accuracy_score}}</td>
+                        <td>{{precision}}</td>
+                        <td>{{recall}}</td>
+                        <td>{{f1_score}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
               </div>
             </div>
           </div>
@@ -138,7 +160,7 @@
                               <th scope="col" class="">Actual Negative</th>
                             </tr>
                           </thead>
-                           <tbody>
+                          <tbody>
                             <tr>
                               <th scope="row" class="align-middle">Predict Positive</th>
                               <td><h4>1017</h4></td>
