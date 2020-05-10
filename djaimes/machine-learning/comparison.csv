@@ -1,0 +1,4 @@
+Model,Total Positives,Total Negatives
+bloottest_LR_selected_features_test.pkl,48,5596
+svc_model_covid_blood.pkl,0,5644
+bloottest_RFC_selected_features.pkl,0,5644
