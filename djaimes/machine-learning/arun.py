@@ -11,7 +11,7 @@ print('\n')
 data = pd.read_csv(path[0])
 
 # Read in model
-fname = 'bloottest_LR_selected_features.pkl'
+fname = 'bloottest_RFC_selected_features_unscaled.pkl'
 path = gl.glob(f'../../**/models/{fname}')
 print(f'Model File: {path[0]}')
 print('\n')

@@ -119,7 +119,7 @@ def comparison():
 def predict():
     
     if (request.form.get('inlineRadioOptions') == 'RFC'):
-        model  = joblib.load('models/bloottest_RFC_selected_features.pkl')
+        model  = joblib.load('models/bloottest_RFC_selected_features_unscaled.pkl')
     elif (request.form.get('inlineRadioOptions') == 'LR'):
         model  = joblib.load('models/bloottest_LR_selected_features_test.pkl')
    # elif (request.form.get('inlineRadioOptions') == 'sequential'):
