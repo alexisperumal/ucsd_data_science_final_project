@@ -55,7 +55,9 @@
                 <h4 class="card-header ">
                 Classification Algorithm - Random Forest </h4>
                 <p class="card-text">
-                  <p>Here the model used is Random Forest for possible prediction of the test result for COVID-19 (positive/negative) based on the laboratory tests commonly collected during a visit to the emergency room </br>
+                  <p>Here the model used is Random Forest for possible prediction of the test result for COVID-19 (positive/negative) based on the laboratory tests commonly collected during a visit to the emergency room. </br>
+                  <p> The original data  is from <a href="https://www.kaggle.com/roche-data-science-coalition/uncover">UNCOVER COVID-19 Challenge</a> 
+                  where file has 5,644 rows and over 100 columns of patient, out of which initially 16 were selected but based on the model score top 10 were kept similar to our prediction form in the home page.</p></br>
                   <p>Working of the Algorithm:</br>
                   <ul class="list-group">
                     <li class="list-group-item">Step 1 - start with the selection of random samples from a given dataset</li>
@@ -82,20 +84,24 @@
             <div class="card ">
               <div class="card-body">
                 <h4 class="card-header ">Implementation</h4>
+                </br>
                 <h5>1.Importing Python libraries and Loading our dataset, preprocessing </h5>
                   <p>
                      <img src="{{ url_for('static', filename='Images_RFC/screen_shot1.png') }}" class=" img-thumbnail" alt="Data Loading">
                      <img src="{{ url_for('static', filename='Images_RFC/screen_shot3.png') }}" class=" img-thumbnail" alt="Data Loading">
                   </p>
+                </br>
                 <h5>2.Splitting our dataset into training set and test set</h5>
                   <p>
                      <img src="{{ url_for('static', filename='Images_RFC/screen_shot4.png') }}" class=" img-thumbnail" alt="data splitting">
                   </p>
-                <h5>4.Creating a Random Forest Regression model and fitting it to the training data</h5>
+                  </br>
+                <h5>3.Creating a Random Forest Regression model and fitting it to the training data</h5>
                   <p>
                      <img src="{{ url_for('static', filename='Images_RFC/screen_shot5.png') }}" class=" img-thumbnail" alt="model">
                   </p>
-                  <h5>5.Predicting the test set results and making the Confusion matrix</h5>
+                  </br>
+                  <h5>4.Predicting the test set results and making the Confusion matrix</h5>
                   <p>
                      <img src="{{ url_for('static', filename='Images_RFC/screen_shot6.png') }}" class=" img-thumbnail" alt="prediction">
                   </p>
@@ -108,10 +114,10 @@
                 <h4 class="card-header">Visualisations</h4>
                 <div class="row">
                   <div class="col-sm-12">
-                    <div class=""> 
+                    
                     </br>
                     <ul class="list-group">
-                      <li class="list-group-item">List of Selected Blood Tests</li>
+                      <h5 class="list-group-item">List of Selected Blood Tests taken from the dataset based on the RFC model top scores</h5>
                       <li class="list-group-item">'patient_age_quantile', 'leukocytes', 'platelets', 'monocytes', 'hematocrit', 'eosinophils', 'red_blood_cells', 'lymphocytes', 'hemoglobin', 'mean_platelet_volume'</li>
                     </ul>
                     </br>
@@ -121,15 +127,31 @@
                     <p></p>
                     <h5>Confusion matrix Heat Map </h5>
                     <img src="{{ url_for('static', filename='Images_RFC/cm_heatmap_bloottest.png') }}" class=" img-thumbnail" alt="Data splitting">
-                    </div>
+                    </br>
+                    </br>
+                     <h5 > Here is the confusion matrix table for the performance of the model:</h5>
+                        <table class="table text-center table-bordered">
+                          <thead>
+                            <tr>
+                              <th scope="col" class=""></th>
+                              <th scope="col" class="">Actual Positve</th>
+                              <th scope="col" class="">Actual Negative</th>
+                            </tr>
+                          </thead>
+                           <tbody>
+                            <tr>
+                              <th scope="row" class="align-middle">Predict Positive</th>
+                              <td><h4>1017</h4></td>
+                              <td><h4>4</h4></td>
+                            </tr>
+                            <tr>
+                              <th scope="row" class="align-middle">Predict Negative</th>
+                              <td><h4>101</h4></td>
+                              <td><h4>7</h4></td>
+                            </tr>
+                          </tbody>
+                        </table>
                   </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="">
-                      
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
