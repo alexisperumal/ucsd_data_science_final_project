@@ -5,6 +5,7 @@ import os
 import joblib
 import numpy as np
 from flask import Flask, request, jsonify, render_template
+from sklearn.preprocessing import StandardScaler
 
 
 # Init app
@@ -55,6 +56,13 @@ class PredictSchema(ma.Schema):
 
 predict_schema = PredictSchema()
 predicts_schema = PredictSchema(many = True)
+
+#------- use the function if model saved is scaled)------#
+def scaleInput(inputArray):
+    reshaped = np.array(inputArray).reshape(1,-1)
+    x_scaler = StandardScaler().fit(reshaped)
+    return x_scaler.transform(reshaped)
+#------- use the function if model saved is scaled)------#    
 
 @app.route('/')
 def home():
@@ -120,6 +128,7 @@ def predict():
     
     if (request.form.get('inlineRadioOptions') == 'RFC'):
         model  = joblib.load('models/bloottest_RFC_selected_features_unscaled.pkl')
+       # model  = joblib.load('models/bloottest_RFC_selected_features.pkl')
     elif (request.form.get('inlineRadioOptions') == 'LR'):
         model  = joblib.load('models/bloottest_LR_selected_features_test.pkl')
    # elif (request.form.get('inlineRadioOptions') == 'sequential'):
@@ -166,7 +175,10 @@ def predict():
                 float(lymphocytes),
                 float(mean_platelet_volume)
                 ]
-    
+    #------- use the function if model saved is scaled)------#
+    #final_features = scaleInput(features)
+    #------- use the function if model saved is scaled)------#
+     
     final_features = [np.array(features)]
     prediction = model.predict(final_features)
     predicted_value = prediction[0]
