@@ -13,7 +13,7 @@ https://www.kaggle.com/roche-data-science-coalition/uncover
 ## Summary:
 The data has 5,644 rows and over 100 columns of patients, out of which top 10 columns were selected based on the model scores, these features are listed to our prediction form in the home page.In this project we have used several models( Logistic Regression, Random Forest Classifier, Support Vector Classifier etc.. for possible prediction of the test result for COVID-19 (positive/negative) based on the below listed column features:
 
-- patient_age_quantile
+- patient_age_quantile (0:0-5, 1:>5-10, 2:>10-15, etc.)
 - leukocytes 
 - platelets
 - monocytes
