@@ -13,16 +13,16 @@ https://www.kaggle.com/roche-data-science-coalition/uncover
 ## Summary:
 The data has 5,644 rows and over 100 columns of patients, out of which top 10 columns were selected based on the model scores, these features are listed to our prediction form in the home page.In this project we have used several models( Logistic Regression, Random Forest Classifier, Support Vector Classifier etc.. for possible prediction of the test result for COVID-19 (positive/negative) based on the below listed column features:
 
-patient_age_quantile
-leukocytes 
-platelets
-monocytes
-hematocrit
-eosinophils
-red_blood_cells
-lymphocytes
-hemoglobin
-mean_platelet_volume
+- patient_age_quantile
+- leukocytes 
+- platelets
+- monocytes
+- hematocrit
+- eosinophils
+- red_blood_cells
+- lymphocytes
+- hemoglobin
+- mean_platelet_volume
 
 ## Installation and steps to run the app:
 **NOTE**: These install instructions is only for setting up your environment the first time. No need to rerun all steps after you've created your database. Simply run the following command: python app.py in `pipenv shell`.
