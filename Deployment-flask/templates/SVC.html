@@ -46,25 +46,106 @@
   </div>
 </nav>
  <!-- Nav Bar -->
-<!--[ container ] -->
-  <div class="container">
-    <div class="row justify-content-center">
-    <div class="col-12">
-       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. 
 
-Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+ <!--[ container ] -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md">
 
-Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. 
+    <!-- Introduction -->
+    <h1 class="display-6 text-center mt-5 mb-3">Classification Algorithm - C-Support Vector Classification</h1>
+    <hr class="my-4">
+    <p>Our classication model uses data from the <a href="https://www.kaggle.com/roche-data-science-coalition/uncover">UNCOVER COVID-19 Challenge</a> to try and determine if commonly available blood tests can be used to accurately predict if a person has COVID-19.  If successful, it could greatly assist in the fight against COVID-19 at a time when commercial COVID testing kits are in short supply. </p>
+    <p>Support-vector machines are supervised learning models that can be used for classification problems such as our COVID blood test dataset.  We used the <strong>scikit-learn</strong> python library to build and tune our model.</p>
+    <a class="btn btn-primary btn-lg" href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC" role="button">Learn more</a>
+    <hr class="my-4">
 
-Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. 
-
-Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. Sed pretium blandit orci. Ut eu diam at pede suscipit sodales. 
-
-
+    <!-- ALERT disclaimer -->
+    <div class="alert alert-info mb-5" role="alert">
+      <strong>Disclaimer:</strong> This tool does not provide medical advice. It is intended for informational purposes only. It is not a substitute for professional medical advice, diagnosis or treatment. Never ignore professional medical advice in seeking treatment because of something you come across. If you think you may have a medical emergency, immediately call your doctor or dial 911.
     </div>
-   </div>
+    </div>
   </div>
-  <!--[ container ] -->
+    
+<!-- Summary -->
+<div class="row">
+  <div class='col-md-12 '>
+  <h3 class='text-center'>Spoiler Alert!</h3>
+  <p class='text-center'>The model is not accurate enough at this time to safely be used as a diagnosic tool for COVID-19.</p>
+  <p>Notice the low recall score of 5.1%, and the high number of samples the model incorrectly predicted did not have COVID. In this particular use case, we would prefer our model to skew to higher false positives rather then incorrectly predicted negatives. 
+    As it stands, using this model would result in a lot of people having a false sense of security, which would ultimatley undermine the effort to slow the spread of the virus.
+  </p>
+  <br>
+  </div>
+</div>
+<div class="row">
+    <div class='col-md-4'>
+      <h5>Results for the SVC predictive model:</h5>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            
+            <th scope="col">Accuracy Score</th>
+            <th scope="col">Precision</th>
+            <th scope="col">Recall</th>
+            <th scope="col">F1_Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>90.9%</td>
+            <td>70.0%</td>
+            <td>5.1%</td>
+            <td>10.0%</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <br>
+      <h5 > Confusion matrix table for the performance of the model:</h5>
+      </br>
+        <table class="table text-center table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" class=""></th>
+              <th scope="col" class="">Predicted Negative</th>
+              <th scope="col" class="">Predicted Positive</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="align-middle">Actual Negative</th>
+              <td><h4>1276</h4></td>
+              <td><h4>1</h4></td>
+            </tr>
+            <tr>
+              <th scope="row" class="align-middle">Actual Positive</th>
+              <td><h4>127</h4></td>
+              <td><h4>7</h4></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    <div class='col-md-8'>
+      <h5 class='text-center'>Confusion matrix Heat Map </h5>
+      <img src="{{ url_for('static', filename='Images_SVC/svc_poly_heatmap_bloottest.png') }}"  alt="Data splitting">
+    </div>
+</div>
+
+<!-- Summary -->
+<div class="row">
+  <div class='col-md-12'>
+    <br>
+    <h3 class='text-center'>Why didn't this work better?</h3>
+    <p>SVM’s use hyperplanes to separate labeled points. When points can’t be separated by flat hyperplanes, as with our dataset, we map it in higher dimensional space using a non-linear kernel (in our case, a polynomial kernel). The SVC model finds the "best fit" hyperplane that divides, or categorizes, the data into either a “positive” or “negative” prediction. </p>
+    <p>SVM’s are more effective when data is linearly separable and less effective when the data is noisy and contains overlapping points. When the data has noise and overlapping points, there is a problem in drawing a clear hyperplane without misclassifying.</p>
+    <p>Due to incompleteness in the available dataset, we were forced to improvise by filling all missing data with the average value of each particular feature. This created a lot of overlapping points and hindered the model's performance.</p>
+    <p>Additionally, SVM's work better when the dataset contains a lot of positive labels. In our dataset, less then 10% of our data was labeled with a positive COVID result.</p>
+  </div>
+</div>
+<!--[ container ] -->
+
 
   <!--[ footer ] -->
   <footer class="page-footer text-center text-md-left pt-4">
