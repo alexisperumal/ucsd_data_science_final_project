@@ -1,3 +1,4 @@
+![COVID Classifier Demo](Presentation/EntryForm.gif)
 ![COVID Classifier Demo](Presentation/ModelDescriptionsAndComparisons.gif)
 
 
