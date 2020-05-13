@@ -1,5 +1,8 @@
+![COVID Classifier Demo](Presntation/ModelDescriptionsAndComparisons.gif)
+
+
 # COVID-19 Machine Learning Analysis
-## Team Members (Alphabetical Order):
+## Team Members:
 - Alexis Perumal
 - Arundhati Chakraborty
 - David Jaimes
