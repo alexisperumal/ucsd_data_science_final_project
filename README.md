@@ -46,10 +46,3 @@ The data has 5,644 rows and over 100 columns of patients, out of which top 10 co
 -	Visualization: html, bootstrap, css
 -   Database:  SQLite
 
-## Screen Shots:
-![](screen_shots/screen_shot1.png)
-![](screen_shots/screen_shot2.png)
-![](screen_shots/screen_shot3.png)
-![](screen_shots/screen_shot4.png)
-![](screen_shots/screen_shot5.png)
-![](screen_shots/screen_shot6.png)
