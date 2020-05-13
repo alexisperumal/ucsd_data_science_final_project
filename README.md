@@ -1,4 +1,4 @@
-![COVID Classifier Demo](Presntation/ModelDescriptionsAndComparisons.gif)
+![COVID Classifier Demo](Presentation/ModelDescriptionsAndComparisons.gif)
 
 
 # COVID-19 Machine Learning Analysis
